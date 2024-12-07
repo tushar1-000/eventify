@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <%- include('./partials/head') %>
+    <title>Eventfy</title>
+  </head>
+  <body>
+    <%- include('./partials/navbar') %>
+    <div class="container mt-3">
+      <div class="row cols-md-3">
+        <% blogs.forEach(blog => { %>
+        <div class="col mb-4">
+          <div class="card col" style="width: 18rem">
+            <a href="/blog/<%=blog._id%>">
+              <img
+                src="<%= blog.coverImageURL %>"
+                class="card-img-top"
+                alt="..."
+              />
+            </a>
+            <div class="card-body">
+              <h5 class="card-title"><%= blog.title %></h5>
+              <p class="card-text description"><%= blog.body %></p>
+              <a href="/blog/<%=blog._id%>" class="btn btn-primary">View</a>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+    <%- include('./partials/script') %>
+  </body>
+</html>
